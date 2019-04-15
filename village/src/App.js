@@ -34,22 +34,35 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-<div className="navbar">
+        <div className="navBar">
           <NavLink className="navLink" exact to="/">
             Home
           </NavLink>
-          <NavLink className="navLink" to="/smurf-form">Add Smurf</NavLink>
+          <NavLink className="navLink" to="/smurf-form">
+            Add Smurf
+          </NavLink>
+          <img
+          src="https://images.justwatch.com/backdrop/46395655/s1440/the-smurfs"
+          alt="smurfs"
+        />
         </div>
-       <Route
-          path="/smurf-form"
-          render={props => <SmurfForm {...props} addNewSmurf={this.addNewSmurf} />}
-        />
-        
-        <Route
-          path="/"
-          render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
-        />
+        {/* <img
+          src="https://images.justwatch.com/backdrop/46395655/s1440/the-smurfs"
+          alt="smurfs"
+        /> */}
+        <div className="main">
+          <Route
+            path="/smurf-form"
+            render={props => (
+              <SmurfForm {...props} addNewSmurf={this.addNewSmurf} />
+            )}
+          />
+
+          <Route
+            path="/"
+            render={props => <Smurfs {...props} smurfs={this.state.smurfs} />}
+          />
+        </div>
       </div>
     );
   }
